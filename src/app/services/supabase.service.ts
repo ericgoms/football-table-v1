@@ -172,13 +172,37 @@ export class SupabaseService {
 
   async addMultipleScores(scores: TeamScoreInput[]): Promise<void> {
     try {
-      const { error } = await this.supabase
-        .from('team_scores')
-        .insert(scores);
+      for (const score of scores) {
+        const { data, error: fetchError } = await this.supabase
+          .from('team_scores')
+          .select('id')
+          .eq('team_id', score.team_id)
+          .eq('round_num', score.round_num)
+          .single();
 
-      if (error) throw error;
+        if (fetchError && fetchError.code !== 'PGRST116') { // Ignore "no rows found" error
+          throw fetchError;
+        }
+
+        if (data) {
+          // Update existing score
+          const { error: updateError } = await this.supabase
+            .from('team_scores')
+            .update({ score: score.score })
+            .eq('id', data.id);
+
+          if (updateError) throw updateError;
+        } else {
+          // Insert new score
+          const { error: insertError } = await this.supabase
+            .from('team_scores')
+            .insert([score]);
+
+          if (insertError) throw insertError;
+        }
+      }
     } catch (error) {
-      console.error('Error adding scores:', error);
+      console.error('Error adding or updating scores:', error);
       throw error;
     }
   }
