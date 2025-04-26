@@ -16,7 +16,7 @@ import { ToastComponent } from './components/toast/toast.component';
 })
 export class AppComponent implements OnInit {
   isMobileMenuOpen = false;
-  isDarkTheme = false;
+  isDarkTheme = true; // Default to dark theme
   isLoading = false;
   showNavbarFooter = true;
   isLoggedIn: boolean = false;

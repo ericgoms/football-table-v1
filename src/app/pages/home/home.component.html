@@ -6,11 +6,11 @@
         <h1 class="hero-title">Feito para Gerenciar Times e Pontuações.</h1>
         <p class="hero-subtitle">Descubra a plataforma definitiva para gerenciar seus times e acompanhar suas pontuações no Cartola FC.</p>
         <div class="hero-buttons">
-          <a routerLink="/login">
-            <button class="primary" >Começar</button>
+          <a (click)="goTo('/login')" routerLink="/login">
+            <button type="button" role="button" class="primary">Começar</button>
           </a>
-          <a routerLink="/tabela">
-            <button class="secondary" >Ver tabela</button>
+          <a (click)="goTo('/tabela')" routerLink="/tabela">
+            <button type="button" role="button" class="secondary">Ver tabela</button>
           </a>
         </div>
       </div>
@@ -23,7 +23,7 @@
     <div class="features-grid">
       <div class="feature-card animate-slide-in-right" [style.animation-delay]="'0.1s'">
         <div class="feature-icon">
-          <!-- Ícone de time -->
+          <i class="fas fa-users-cog"></i> <!-- Ícone de gerenciamento -->
         </div>
         <h3>Gerencie Seus Times</h3>
         <p>Adicione e gerencie seus times do Cartola FC com facilidade. Mantenha todos os seus escudos e informações organizados em um só lugar.</p>
@@ -31,7 +31,7 @@
 
       <div class="feature-card animate-slide-in-right" [style.animation-delay]="'0.2s'">
         <div class="feature-icon">
-          <!-- Ícone de pontuação -->
+          <i class="fas fa-chart-line"></i> <!-- Ícone de pontuação -->
         </div>
         <h3>Acompanhe Pontuações</h3>
         <p>Registre e acompanhe as pontuações de cada rodada. Visualize o desempenho dos seus times ao longo do campeonato.</p>
@@ -39,7 +39,7 @@
 
       <div class="feature-card animate-slide-in-right" [style.animation-delay]="'0.3s'">
         <div class="feature-icon">
-          <!-- Ícone de ranking -->
+          <i class="fas fa-trophy"></i> <!-- Ícone de ranking -->
         </div>
         <h3>Ranking Completo</h3>
         <p>Veja a classificação geral e por rodada. Compare seu desempenho com outros times e acompanhe sua evolução.</p>
@@ -82,7 +82,7 @@
     <div class="cta-content">
       <h2>Pronto para Começar?</h2>
       <p>Junte-se a milhares de cartoleiros que já usam nossa plataforma para gerenciar seus times.</p>
-      <button class="primary-button" routerLink="/teams">Criar Meu Primeiro Time</button>
+      <button type="button" role="button" class="primary-button" routerLink="/teams/create">Criar Meu Primeiro Time</button>
     </div>
   </section>
 </div>

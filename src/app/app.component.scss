@@ -53,6 +53,22 @@ header {
   gap: 3rem;
 }
 
+/* Styling the login button in the app component */
+.header-actions a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.header-actions a:hover {
+  background-color: var(--primary-dark);
+}
+
 .theme-toggle {
   margin: 15px 0;
   display: flex;
@@ -376,6 +392,10 @@ button[type="submit"] {
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
   transition: background-color 0.3s ease;
+
+  i {
+    margin-right: 25px;
+  }
 }
 
 .sidebar-nav a:hover {
@@ -389,7 +409,8 @@ button[type="submit"] {
 /* Moved styles from app.component.html to app.component.scss */
 
 .small-logo {
-  width: 80%; /* Adjust the size as needed */
+  margin: 25px auto;
+  width: 50%; /* Adjust the size as needed */
 }
 
 .dashboard-footer {
