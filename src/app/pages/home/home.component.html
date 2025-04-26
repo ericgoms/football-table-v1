@@ -1,0 +1,88 @@
+<div class="home-container animate-fade-in">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1 class="hero-title">Feito para Gerenciar Times e Pontuações.</h1>
+        <p class="hero-subtitle">Descubra a plataforma definitiva para gerenciar seus times e acompanhar suas pontuações no Cartola FC.</p>
+        <div class="hero-buttons">
+          <a routerLink="/login">
+            <button class="primary" >Começar</button>
+          </a>
+          <a routerLink="/tabela">
+            <button class="secondary" >Ver tabela</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section animate-fade-in-up delay-100">
+    <h2>Como Funciona</h2>
+    <div class="features-grid">
+      <div class="feature-card animate-slide-in-right" [style.animation-delay]="'0.1s'">
+        <div class="feature-icon">
+          <!-- Ícone de time -->
+        </div>
+        <h3>Gerencie Seus Times</h3>
+        <p>Adicione e gerencie seus times do Cartola FC com facilidade. Mantenha todos os seus escudos e informações organizados em um só lugar.</p>
+      </div>
+
+      <div class="feature-card animate-slide-in-right" [style.animation-delay]="'0.2s'">
+        <div class="feature-icon">
+          <!-- Ícone de pontuação -->
+        </div>
+        <h3>Acompanhe Pontuações</h3>
+        <p>Registre e acompanhe as pontuações de cada rodada. Visualize o desempenho dos seus times ao longo do campeonato.</p>
+      </div>
+
+      <div class="feature-card animate-slide-in-right" [style.animation-delay]="'0.3s'">
+        <div class="feature-icon">
+          <!-- Ícone de ranking -->
+        </div>
+        <h3>Ranking Completo</h3>
+        <p>Veja a classificação geral e por rodada. Compare seu desempenho com outros times e acompanhe sua evolução.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works-section animate-fade-in-up delay-200">
+    <h2>Passo a Passo</h2>
+    <div class="steps-container">
+      <div class="step animate-slide-in-right" [style.animation-delay]="'0.1s'">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Adicione Seus Times</h3>
+          <p>Comece adicionando seus times do Cartola FC. Inclua o nome e o escudo de cada time.</p>
+        </div>
+      </div>
+
+      <div class="step animate-slide-in-right" [style.animation-delay]="'0.2s'">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Registre as Pontuações</h3>
+          <p>Após cada rodada, registre as pontuações dos seus times. O sistema calcula automaticamente o total.</p>
+        </div>
+      </div>
+
+      <div class="step animate-slide-in-right" [style.animation-delay]="'0.3s'">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Acompanhe a Evolução</h3>
+          <p>Visualize gráficos e estatísticas do desempenho dos seus times ao longo do campeonato.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section animate-fade-in-up delay-300">
+    <div class="cta-content">
+      <h2>Pronto para Começar?</h2>
+      <p>Junte-se a milhares de cartoleiros que já usam nossa plataforma para gerenciar seus times.</p>
+      <button class="primary-button" routerLink="/teams">Criar Meu Primeiro Time</button>
+    </div>
+  </section>
+</div>

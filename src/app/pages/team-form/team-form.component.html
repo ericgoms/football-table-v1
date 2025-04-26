@@ -1,0 +1,34 @@
+<div class="team-form-container animate-fade-in">
+  <div class="header animate-fade-in-up">
+    <h1>Adicionar Time</h1>
+  </div>
+
+  <div class="form-content animate-fade-in-up delay-100">
+    <div class="form-group">
+      <label for="teamName">Nome do Time</label>
+      <input
+        type="text"
+        id="teamName"
+        [(ngModel)]="teamName"
+        placeholder="Digite o nome do time"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="emblemUrl">URL do Escudo</label>
+      <input
+        type="text"
+        id="emblemUrl"
+        [(ngModel)]="emblemUrl"
+        placeholder="Digite a URL do escudo"
+      />
+    </div>
+
+    <div class="button-group">
+      <button class="cancel-button">Cancelar</button>
+      <button class="save-button" (click)="addTeam()" [disabled]="isLoading">
+        {{ isLoading ? 'Salvando...' : 'Salvar' }}
+      </button>
+    </div>
+  </div>
+</div>

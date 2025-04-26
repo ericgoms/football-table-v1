@@ -1,0 +1,84 @@
+<div class="round-scores-container animate-fade-in">
+  <div class="header animate-fade-in-up">
+    <div class="round-navigation">
+      <button
+        class="nav-button"
+        (click)="previousRound()"
+        [disabled]="round <= 1"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <span class="round-number">Rodada {{ round }}</span>
+      <button
+        class="nav-button"
+        (click)="nextRound()"
+        [disabled]="round >= 38"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="content animate-fade-in-up delay-100">
+    <mat-card class="score-card">
+      <mat-card-header>
+        <mat-card-title>Pontuações da Rodada {{ round }}</mat-card-title>
+      </mat-card-header>
+
+      <div class="table-container">
+        <table *ngIf="!isLoading" mat-table [dataSource]="teams" class="mat-elevation-z8">
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>Posição</th>
+            <td mat-cell *matCellDef="let element; let i = index">
+              {{ i + 1 }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="team">
+            <th mat-header-cell *matHeaderCellDef>Time</th>
+            <td mat-cell *matCellDef="let element">
+              <div class="team-info">
+                <img
+                  [src]="element.emblem"
+                  [alt]="element.team"
+                  class="team-emblem"
+                />
+                <span>{{ element.team }}</span>
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="score">
+            <th mat-header-cell *matHeaderCellDef>Pontuação</th>
+            <td mat-cell *matCellDef="let element">
+              <input
+                type="number"
+                [(ngModel)]="element.score"
+                min="0"
+                step="0.1"
+              />
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index" class="animate-slide-in-right" [style.animation-delay]="i * 0.1 + 's'"></tr>
+        </table>
+
+        <div class="spinner-container">
+          <div *ngIf="isLoading" class="spinner-circle"></div>
+        </div>
+      </div>
+
+      <div class="save-button animate-fade-in-up delay-200">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="saveScores()"
+          [disabled]="isLoading"
+        >
+          Salvar Pontuações
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

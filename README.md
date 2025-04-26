@@ -1,59 +1,92 @@
-# CartolaApp
+# ![CartolaApp Logo](src/assets/logo.png) CartolaApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
+CartolaApp é uma plataforma moderna para gerenciar times e acompanhar pontuações no Cartola FC. Com uma interface intuitiva e recursos poderosos, você pode organizar seus times, registrar pontuações e visualizar rankings de forma prática e eficiente.
 
-## Development server
+## 🚀 Recursos Principais
 
-To start a local development server, run:
+- **Gerenciamento de Times**: Adicione e edite informações dos seus times, incluindo nome e escudo.
+- **Pontuações por Rodada**: Registre e acompanhe as pontuações de cada rodada.
+- **Ranking Geral**: Visualize a classificação geral dos times com base nas pontuações acumuladas.
+- **Tema Escuro**: Alterne entre os modos claro e escuro para uma experiência personalizada.
 
-```bash
-ng serve
-```
+## 🛠️ Como Executar o Projeto
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Servidor de Desenvolvimento
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Para iniciar o servidor de desenvolvimento, execute:
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Acesse o aplicativo em [http://localhost:4200/](http://localhost:4200/). O servidor recarregará automaticamente ao salvar alterações nos arquivos.
 
-To build the project run:
+### Construção do Projeto
+
+Para gerar os artefatos de build, execute:
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Os arquivos serão gerados no diretório `dist/`.
 
-## Running unit tests
+### Testes Unitários
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Execute os testes unitários com o comando:
 
 ```bash
-ng test
+npm test
 ```
 
-## Running end-to-end tests
+### Testes End-to-End
 
-For end-to-end (e2e) testing, run:
+Para testes end-to-end, configure e execute:
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 📂 Estrutura do Projeto
 
-## Additional Resources
+```plaintext
+src/
+├── app/
+│   ├── components/       # Componentes reutilizáveis
+│   ├── pages/            # Páginas principais do aplicativo
+│   ├── services/         # Serviços para lógica de negócios e integração
+│   ├── app.component.ts  # Componente raiz
+│   └── ...
+├── assets/               # Imagens e outros recursos estáticos
+├── environments/         # Configurações de ambiente
+└── styles.scss           # Estilos globais
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🖼️ Prévia do Projeto
+
+![CartolaApp Preview](src/assets/login-section2.png)
+
+## 📚 Tecnologias Utilizadas
+
+- **Angular**: Framework para construção de interfaces modernas.
+- **Supabase**: Backend como serviço para autenticação e banco de dados.
+- **SCSS**: Estilização avançada com suporte a variáveis e mixins.
+- **Express**: Servidor para renderização SSR.
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
+
+1. Faça um fork do repositório.
+2. Crie uma branch para sua feature: `git checkout -b minha-feature`.
+3. Commit suas alterações: `git commit -m 'Adiciona minha feature'`.
+4. Envie para o repositório remoto: `git push origin minha-feature`.
+5. Abra um Pull Request.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+---
+
+Feito com ❤️ por [Seu Nome].

@@ -1,0 +1,131 @@
+.login-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.image-section {
+  width: 50%;
+  a {
+    cursor: pointer;
+    height: 100%;
+    width: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  background-color: var(--background-color);
+
+}
+
+.form-section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: var(--background-color);;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+// input {
+//   width: 100%;
+//   padding: 10px;
+//   border: 1px solid #ccc;
+//   border-radius: 4px;
+//   font-size: 14px;
+// }
+
+input.invalid {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+// .primary-button {
+//   width: 100%;
+//   padding: 10px;
+//   background: var(--primary-color);
+//   color: #fff;
+//   border: none;
+//   border-radius: 4px;
+//   font-size: 16px;
+//   cursor: pointer;
+//   transition: background 0.3s;
+// }
+
+// .primary-button:disabled {
+//   background: #ccc;
+//   cursor: not-allowed;
+// }
+
+// .primary-button:hover:not(:disabled) {
+//   background: var(--primary-dark);
+// }
+
+.link-container {
+  text-align: center;
+  margin-top: 15px;
+  color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.logo-img {
+  width: 175px;
+  height: auto;
+  margin-bottom: 20px;
+  margin: 0 auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+
+  .image-section {
+    display: none;
+  }
+
+
+  .image-section img {
+    width: 150px;
+    height: auto;
+  }
+
+  .form-section {
+    width: 100%;
+    margin-top: 0;
+    height: 100%;
+  }
+}

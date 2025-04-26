@@ -1,0 +1,114 @@
+<div class="score-table-container animate-fade-in">
+  <div class="header animate-fade-in-up">
+    <div class="header-actions">
+      <button class="toggle-button" (click)="toggleView()">
+        {{ showRoundScores ? "Ver Tabela Geral" : "Ver Pontuações por Rodada" }}
+      </button>
+    </div>
+  </div>
+
+  <div class="content animate-fade-in-up delay-100">
+    <div class="score-card">
+      <div class="card-header">
+        <h2>
+          {{
+            showRoundScores ? "Pontuações da Rodada " + round : "Tabela Geral"
+          }}
+        </h2>
+      </div>
+
+      <div class="table-container">
+        <div class="spinner-container">
+          <div *ngIf="isLoadingRound" class="spinner-circle"></div>
+          
+        </div>
+        <table  *ngIf="!showRoundScores && !isLoadingRound">
+          <thead>
+            <tr>
+              <th>Posição</th>
+              <th>Time</th>
+              <th>Pontuação Total</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let team of teams; let i = index" class="animate-slide-in-right" [style.animation-delay]="i * 0.1 + 's'">
+              <td>{{ i + 1 }}</td>
+              <td>
+                <div class="team-info">
+                  <img
+                    [src]="team.emblem_url"
+                    [alt]="team.name"
+                    class="team-emblem"
+                  />
+                  <span>{{ team.name }}</span>
+                </div>
+              </td>
+              <td>{{ team.total_score }}</td>
+              <td class="actions">
+                <button class="delete-button" (click)="openDeleteModal(team)"></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table *ngIf="showRoundScores && !isLoadingRound">
+          <thead>
+            <tr>
+              <th>Posição</th>
+              <th>Time</th>
+              <th>Pontuação</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let score of roundScores; let i = index" class="animate-slide-in-right" [style.animation-delay]="i * 0.1 + 's'">
+              <td>{{ i + 1 }}</td>
+              <td>
+                <div class="team-info">
+                  <img
+                    [src]="score.emblem_url"
+                    [alt]="score.team_name"
+                    class="team-emblem"
+                  />
+                  <span>{{ score.team_name }}</span>
+                </div>
+              </td>
+              <td>{{ score.score === 0 ? 'Sem pontuação' : score.score }}</td>
+              <td class="actions">
+                <button
+                  class="delete-button"
+                  (click)="findTeamByScore(score) && openDeleteModal(findTeamByScore(score)!)"
+                ></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination-container animate-fade-in-up delay-200" *ngIf="showRoundScores">
+    <div class="pagination">
+      <button
+        *ngFor="let page of [].constructor(38); let i = index"
+        [class.active]="round === i + 1"
+        (click)="onRoundChange(i + 1)"
+      >
+        {{ i + 1 }}
+      </button>
+    </div>
+  </div>
+
+  <app-confirmation-modal
+    [isOpen]="isDeleteModalOpen"
+    [title]="'Excluir Time'"
+    [message]="
+      'Tem certeza que deseja excluir o time ' +
+      (teamToDelete?.name || '') +
+      '?'
+    "
+    (confirmed)="confirmDelete()"
+    (closed)="closeDeleteModal()"
+  ></app-confirmation-modal>
+</div>

@@ -1,0 +1,4 @@
+<div class="toast" [ngClass]="type" *ngIf="visible">
+  <span class="message">{{ message }}</span>
+  <button class="close-button" (click)="hideToast()">&times;</button>
+</div>

@@ -1,0 +1,75 @@
+<div class="login-container">
+  <div class="image-section">
+    <a routerLink="/">
+      <img (click)="goHome()" src="/assets/login-section2.png" alt="Imagem de Login" />
+    </a>
+  </div>
+  <div class="form-section">
+    <img src="/assets/logo.png" alt="Logo" class="logo-img"/>
+    <h1 *ngIf="isLoginMode">Entrar</h1>
+    <h1 *ngIf="!isLoginMode">Criar Conta</h1>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Digite seu email"
+          required
+          #emailInput="ngModel"
+          [ngClass]="{ 'invalid': emailInput.invalid && emailInput.touched }"
+        />
+        <div class="error-message" *ngIf="emailInput.invalid && emailInput.touched">
+          Por favor, insira um email válido.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Digite sua senha"
+          required
+          minlength="6"
+          #passwordInput="ngModel"
+          [ngClass]="{ 'invalid': passwordInput.invalid && passwordInput.touched }"
+        />
+        <div class="error-message" *ngIf="passwordInput.invalid && passwordInput.touched">
+          A senha deve ter pelo menos 6 caracteres.
+        </div>
+      </div>
+
+      <div class="form-group" *ngIf="!isLoginMode">
+        <label for="confirmPassword">Confirmar Senha</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirme sua senha"
+          required
+          #confirmPasswordInput="ngModel"
+          [ngClass]="{ 'invalid': confirmPasswordInput.invalid && confirmPasswordInput.touched }"
+        />
+        <div class="error-message" *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched">
+          Por favor, confirme sua senha.
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid" class="primary">
+        {{ isLoginMode ? "Entrar" : "Cadastrar" }}
+      </button>
+    </form>
+
+    <p class="link-container" (click)="toggleMode()">
+      {{ isLoginMode ? "Criar uma conta" : "Já tem uma conta? Entrar" }}
+    </p>
+  </div>
+</div>
+
