@@ -417,7 +417,7 @@ table {
   width: 100vw; /* Garante que ocupa toda a largura da viewport */
   height: 100vh;
   overflow: hidden;
-  background: url('/assets/login-section.jpg') no-repeat center center;
+  background: url('assets/login-section.jpg') no-repeat center center;
   background-size: cover;
   animation: background-pan 20s linear infinite;
   background-attachment: fixed;

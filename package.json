@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:cartola-app": "node dist/cartola-app/server/server.mjs"
+    "serve:ssr:cartola-app": "node dist/cartola-app/server/server.mjs",
+    "build:gh": "ng build --configuration production --base-href /football-table-v1/ --deploy-url /football-table-v1/",
+    "deploy": "npm run build:gh && npx angular-cli-ghpages --dir=dist/cartola-app"
   },
   "private": true,
   "dependencies": {

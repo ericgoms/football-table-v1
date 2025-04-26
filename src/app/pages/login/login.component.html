@@ -1,11 +1,11 @@
 <div class="login-container">
   <div class="image-section">
     <a routerLink="/">
-      <img (click)="goHome()" src="/assets/login-section2.png" alt="Imagem de Login" />
+      <img (click)="goHome()" src="assets/login-section2.png" alt="Imagem de Login" />
     </a>
   </div>
   <div class="form-section">
-    <img src="/assets/logo.png" alt="Logo" class="logo-img"/>
+    <img src="assets/logo.png" alt="Logo" class="logo-img"/>
     <h1 *ngIf="isLoginMode">Entrar</h1>
     <h1 *ngIf="!isLoginMode">Criar Conta</h1>
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
